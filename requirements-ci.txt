@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# Grading-only dependencies.
+ipykernel==6.29.5
+pytest==8.3.5
+testbook==0.4.2

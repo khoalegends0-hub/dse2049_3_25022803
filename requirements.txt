@@ -1,0 +1,4 @@
+# Runtime dependencies used by the student notebook.
+# These versions have pre-built wheels for CPython 3.11 on GitHub-hosted Linux runners.
+numpy==2.2.6
+pandas==2.2.3
