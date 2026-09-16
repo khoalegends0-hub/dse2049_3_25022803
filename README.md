@@ -66,12 +66,3 @@ Mở commit mà tag trỏ tới → xem status `private-grader/lab-01`, `private
 Không cần vào tab Actions ở repo sinh viên. Link Details dẫn đến grader private, chỉ giảng viên xem được.
 
 Nếu đã nộp đúng tag nhưng chưa có status, gửi giảng viên tên repo, lab, tag và commit SHA.
-
-## Dành cho giảng viên tạo repo pilot
-
-Dùng **Use this template → Create a new repository**, owner là `uet-iai-notebook-labs-2026`, chọn Private.
-Chỉ cấp quyền cho đúng người đóng vai sinh viên; không cấp quyền repo grader.
-Trong grader, thêm repo mới vào `config/organization-submissions.json` và repository access của
-`ORG_SUBMISSIONS_TOKEN`. Token cần Contents read và Commit statuses write trên repo bài nộp.
-Các repo pilot cũ không tự nhận file mới khi template thay đổi: hãy tạo repo pilot mới hoặc copy ba notebook này
-vào repo pilot đã đăng ký trước khi làm/nộp. Không chạy lại provisioner pilot cũ để đồng bộ template.
