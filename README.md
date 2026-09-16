@@ -9,6 +9,40 @@ Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-20
 | [lab-02.ipynb](lab-02.ipynb) | Python, CSV, làm sạch và tổng hợp | 80 | 20 |
 | [lab-03.ipynb](lab-03.ipynb) | NumPy, masks, axis, phân vị và argsort | 80 | 20 |
 
+## Tạo repo bài nộp từ template
+
+Thực hiện một lần khi bắt đầu học; dùng cùng repo cho cả ba lab.
+
+1. Đăng nhập GitHub và chấp nhận lời mời tham gia organization `uet-iai-notebook-labs-2026` của giảng viên.
+2. Mở [repo template](https://github.com/uet-iai-notebook-labs-2026/notebook-labs-template), chọn **Use this template → Create a new repository**.
+3. Điền thông tin như sau:
+
+   | Trường | Giá trị |
+   |---|---|
+   | Owner | `uet-iai-notebook-labs-2026` |
+   | Repository name | `<mã_lớp>_<mssv>`, theo quy tắc bên dưới |
+   | Visibility | **Private** |
+   | Include all branches | Không chọn |
+
+4. Bấm **Create repository** (hoặc **Create repository from template**).
+5. Gửi giảng viên **họ tên, mã lớp, MSSV, GitHub username và URL repo** để đăng ký chấm bài.
+6. Clone repo vừa tạo về máy hoặc mở notebook của repo đó bằng Colab. Làm bài và commit trên branch `main` của repo cá nhân trong org.
+
+**Quy tắc đặt tên:** dùng mã lớp được giảng viên cung cấp, viết thường, nối với MSSV bằng dấu gạch dưới `_`; không thêm khoảng trắng hoặc họ tên.
+
+Ví dụ mã lớp `dse2049_7` thì tên repo theo mẫu `dse2049_7_mssv`.
+Sinh viên có MSSV `23020001` đặt tên **`dse2049_7_23020001`**, với URL:
+
+```text
+https://github.com/uet-iai-notebook-labs-2026/dse2049_7_23020001
+```
+
+Thay `mssv` bằng mã số sinh viên thật của mình. Mỗi sinh viên tạo một repo cho lớp đang học, chứa tất cả lab; không tạo repo riêng cho từng lab.
+
+Nếu không thấy org trong mục Owner, không mở được template hoặc không có quyền tạo repo, báo giảng viên để kiểm tra lời mời và quyền truy cập. Không tạo repo dưới tài khoản cá nhân để thay thế.
+
+Sau khi tạo repo, không cần cấu hình GitHub Actions hay secret chấm bài. Chờ giảng viên xác nhận đăng ký repo, rồi nộp từng lab bằng tag theo mục **Nộp một lab** bên dưới.
+
 ## Làm bài
 
 1. Mở notebook bằng Colab hoặc Jupyter. Điền cell TODO và phần trả lời Markdown.
