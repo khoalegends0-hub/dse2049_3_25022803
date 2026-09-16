@@ -1,5 +1,7 @@
 .venv/
-.ipynb_checkpoints/
 __pycache__/
-.pytest_cache/
-*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+data/
+bao_cao_lab02.json
+figures/
