@@ -7,7 +7,7 @@ Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-20
 |---|---|---:|---:|
 | [lab-01.ipynb](lab-01.ipynb) | Notebook, trạng thái, đọc dữ liệu và quy trình AI | 40 | 60 |
 | [lab-02.ipynb](lab-02.ipynb) | Python, CSV, làm sạch và tổng hợp | 80 | 20 |
-| [lab-03.ipynb](lab-03.ipynb) | NumPy, masks, axis, phân vị và argsort | 80 | 20 |
+| [lab-03.ipynb](lab-03.ipynb) | NumPy: bộ nhớ, view/copy, broadcasting, thống kê và lấy mẫu | 80 | 20 |
 
 ## Tạo repo bài nộp từ template
 
@@ -55,7 +55,8 @@ private grader chấm độc lập, không đọc bảng PUBLIC_RESULTS hay outp
 Giữ nguyên cell ID, tên hàm/biến và hợp đồng input/output. Có thể viết helper trong chính cell bài làm;
 grader không chạy những cell helper mới nằm rải rác ngoài cell đó. Các câu được chấm độc lập với đầu vào riêng.
 Các import chuẩn `csv`, `json`, `numpy as np`, `pandas as pd` và hàm `trung_vi` được cung cấp khi phù hợp.
-Phần markdown do giảng viên đọc. Các bài E của lab 02–03 vẫn là mở rộng tùy chọn, không làm giảm điểm Q.
+Phần markdown do giảng viên đọc. Các bài E của lab 02 và lab 03 bản cũ vẫn là mở rộng tùy chọn, không làm giảm điểm Q.
+Lab 03 bản mới chấm Q1–Q6 và Q8 tự động; Q7 đo thời gian do giảng viên đọc nhận xét.
 
 ## Môi trường và dữ liệu
 
@@ -68,7 +69,7 @@ python -m ipykernel install --user --name ltxldl --display-name "LTXLDL"
 
 Chọn kernel LTXLDL trong Jupyter/VS Code. Colab có sẵn nhiều thư viện; chỉ cài khi import chưa hoạt động.
 
-Notebook mở mặc định bằng 6 dòng giả lập để thử quy trình; không suy rộng kết quả thành kết luận về Santiago.
+Lab 01–02 mở mặc định bằng 6 dòng giả lập để thử quy trình; không suy rộng kết quả thành kết luận về Santiago.
 Có thể dùng snapshot Santiago 2026-06-29 theo hướng dẫn notebook. Q2 lab 01 chấp nhận câu trả lời đọc bảng
 cho bộ 6 dòng hoặc snapshot 18.534 dòng đã nêu trong đề. Các hàm khác phải tính từ input, không ghi cứng số.
 Private grader không tải URL từ notebook và không chạy API bên ngoài.
@@ -100,3 +101,16 @@ Mở commit mà tag trỏ tới → xem status `private-grader/lab-01`, `private
 Không cần vào tab Actions ở repo sinh viên. Link Details dẫn đến grader private, chỉ giảng viên xem được.
 
 Nếu đã nộp đúng tag nhưng chưa có status, gửi giảng viên tên repo, lab, tag và commit SHA.
+
+
+## Cập nhật lab 03 — 20/09/2026
+
+Lab 03 hiện dùng đề **NumPy và tư duy vector hoá**, phiên bản `numpy-vectorization-v2`,
+gồm 8 bài với dữ liệu tự tạo; ví dụ giá là giả lập USD/đêm, không phải dữ liệu Santiago.
+Tổng điểm vẫn là 80 tự động + 20 giảng viên.
+
+Repo đã tạo từ template không tự nhận bản cập nhật. Nếu được giảng viên yêu cầu chuyển sang đề mới,
+lưu bản bài làm cũ trước, tải `lab-03.ipynb` từ template và đưa vào repo của mình;
+không ghi đè phần đã làm mà chưa sao lưu. Hai đề khác nhau, không chỉ đổi tên hàm.
+Dùng tag lần nộp kế tiếp nếu đã nộp bài; không di chuyển tag cũ.
+Grader vẫn nhận diện đề cũ để chấm theo hợp đồng cũ; giảng viên xác định đề áp dụng cho lớp.
