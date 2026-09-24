@@ -1,6 +1,6 @@
-# LTXLDL — pilot lab 01, 02, 03
+# LTXLDL — pilot lab 01–05
 
-Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-2026`**, chứa cả ba lab.
+Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-2026`**, chứa tất cả các lab.
 Đây là bộ pilot để thử quy trình nộp/chấm, chưa phải điểm chính thức của môn học.
 
 | File | Nội dung | Điểm máy tối đa | Phần giảng viên |
@@ -8,10 +8,12 @@ Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-20
 | [lab-01.ipynb](lab-01.ipynb) | Notebook, trạng thái, đọc dữ liệu và quy trình AI | 40 | 60 |
 | [lab-02.ipynb](lab-02.ipynb) | Python, CSV, làm sạch và tổng hợp | 80 | 20 |
 | [lab-03.ipynb](lab-03.ipynb) | NumPy: bộ nhớ, view/copy, broadcasting, thống kê và lấy mẫu | 80 | 20 |
+| [lab-04.ipynb](lab-04.ipynb) | pandas: lập hồ sơ một quận — chọn/lọc, `.loc`, mẫu số và NaN, xuất CSV | 80 | 20 |
+| [lab-05.ipynb](lab-05.ipynb) | pandas: phân khúc giá, host chuyên nghiệp — `groupby`, `transform`, `pivot_table`, `merge` | 80 | 20 |
 
 ## Tạo repo bài nộp từ template
 
-Thực hiện một lần khi bắt đầu học; dùng cùng repo cho cả ba lab.
+Thực hiện một lần khi bắt đầu học; dùng cùng repo cho mọi lab.
 
 1. Đăng nhập GitHub và chấp nhận lời mời tham gia organization `uet-iai-notebook-labs-2026` của giảng viên.
 2. Mở [repo template](https://github.com/uet-iai-notebook-labs-2026/notebook-labs-template), chọn **Use this template → Create a new repository**.
@@ -86,7 +88,7 @@ git tag submit/lab-02/v1
 git push origin submit/lab-02/v1
 ```
 
-Tag tương ứng của lab 01 và 03 là `submit/lab-01/v1`, `submit/lab-03/v1`.
+Tag tương ứng của các lab khác là `submit/lab-01/v1`, `submit/lab-03/v1`, `submit/lab-04/v1`, `submit/lab-05/v1`.
 Pilot hiện hỗ trợ v1, v2, v3 cho từng lab. Sửa bài phải tạo commit mới và tag lần tiếp theo;
 không di chuyển/force-push tag đã nộp. Commit/push không có tag chưa được xem là bài nộp tự động.
 
@@ -96,7 +98,7 @@ Grader quét **20:00 thứ Bảy, giờ Việt Nam**; giảng viên có thể ch
 Giờ bắt đầu thực tế có thể trễ do GitHub xếp hàng.
 
 Mở commit mà tag trỏ tới → xem status `private-grader/lab-01`, `private-grader/lab-02` hoặc
-`private-grader/lab-03`. Ví dụ `Auto 70/80; manual 20 pending` nghĩa là máy đã chấm 70/80,
+`private-grader/lab-03`, `private-grader/lab-04`, `private-grader/lab-05`. Ví dụ `Auto 70/80; manual 20 pending` nghĩa là máy đã chấm 70/80,
 20 điểm còn chờ giảng viên; đây chưa phải điểm cuối cùng. Status xanh chỉ xác nhận các mục Q tự động đã qua.
 Không cần vào tab Actions ở repo sinh viên. Link Details dẫn đến grader private, chỉ giảng viên xem được.
 
@@ -114,3 +116,21 @@ lưu bản bài làm cũ trước, tải `lab-03.ipynb` từ template và đưa 
 không ghi đè phần đã làm mà chưa sao lưu. Hai đề khác nhau, không chỉ đổi tên hàm.
 Dùng tag lần nộp kế tiếp nếu đã nộp bài; không di chuyển tag cũ.
 Grader vẫn nhận diện đề cũ để chấm theo hợp đồng cũ; giảng viên xác định đề áp dụng cho lớp.
+
+
+## Lab 04 và lab 05 — 24/09/2026
+
+Hai lab pandas trên snapshot Santiago 2026-06-29, cùng cách chấm như lab 03: **8 bài × 10 điểm tự động + 20 điểm giảng viên**.
+
+| Lab | Phiên bản đề | Nội dung chấm tự động |
+|---|---|---|
+| `lab-04.ipynb` | `pandas-district-profile-v1` | chọn cột/hàng, lọc quận, lọc kết hợp, `nsmallest`, sửa bằng `.loc` và tính lại cột, tỷ lệ theo 2 mẫu số, cơ cấu loại phòng, xuất/đọc lại CSV |
+| `lab-05.ipynb` | `pandas-groupby-merge-v1` | `loc`/`iloc`, alignment, `map` với hàm, `agg` đặt tên, host chuyên nghiệp, `transform`, `pivot_table`, `merge(validate="m:1")` |
+
+Notebook mở mặc định bằng **12 dòng giả lập** để Run all được khi không có mạng; đặt `LISTINGS_PATH = SNAPSHOT_URL`
+trong cell dữ liệu để thực hành trên Santiago. Public checks và grader không dùng snapshot, không tải URL.
+Hàm phải nhận dữ liệu qua tham số và **không sửa DataFrame đầu vào**; grader kiểm tra cả việc này.
+Hai lab chạy với Copy-on-Write của pandas 3 (bật sẵn trong notebook và khi chấm).
+
+Repo đã tạo từ template không tự nhận file mới: tải `lab-04.ipynb`, `lab-05.ipynb` từ template, đặt ở gốc repo
+của mình rồi làm bài. Nộp bằng tag `submit/lab-04/vN`, `submit/lab-05/vN`.
