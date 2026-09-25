@@ -11,7 +11,10 @@
     "lab-07",
     "lab-08",
     "lab-10",
-    "lab-11"
+    "lab-11",
+    "lab-12",
+    "lab-13",
+    "lab-14"
   ],
   "student_workflows": false,
   "version": "course-2026-v2",
@@ -25,6 +28,9 @@
     "lab-07": "text-regex-v1",
     "lab-08": "time-series-v1",
     "lab-10": "qa-cross-table-v1",
-    "lab-11": "llm-eval-v1"
+    "lab-11": "llm-eval-v1",
+    "lab-12": "report-charts-v1",
+    "lab-13": "seaborn-maps-critique-v1",
+    "lab-14": "storytelling-review-v1"
   }
 }

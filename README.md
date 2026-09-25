@@ -1,4 +1,4 @@
-# LTXLDL — pilot lab 01–11
+# LTXLDL — pilot lab 01–14
 
 Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-2026`**, chứa tất cả các lab.
 Đây là bộ pilot để thử quy trình nộp/chấm, chưa phải điểm chính thức của môn học.
@@ -15,6 +15,9 @@ Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-20
 | [lab-08.ipynb](lab-08.ipynb) | Chuỗi thời gian: cắt lát, quý chưa trọn, `rolling`, so cùng kỳ | 80 | 20 |
 | [lab-10.ipynb](lab-10.ipynb) | Đảm bảo chất lượng chéo bảng: khoá ngoại, khoá tự nhiên, cột dẫn xuất, `qa_report` | 80 | 20 |
 | [lab-11.ipynb](lab-11.ipynb) | Kỷ luật đo lường cho LLM: chọn mẫu, schema Pydantic, nhãn tay, hậu kiểm | 80 | 20 |
+| [lab-12.ipynb](lab-12.ipynb) | Biểu đồ cho báo cáo: đường, thanh ngang, histogram, sửa trục bị cắt; kiểm tra bằng `assert` | 80 | 20 |
+| [lab-13.ipynb](lab-13.ipynb) | seaborn, bản đồ số chỗ ở, phản biện hình chọn mốc có lợi | 80 | 20 |
+| [lab-14.ipynb](lab-14.ipynb) | Kể chuyện bằng dữ liệu: kim tự tháp, lời đúng mức, nghịch lý Simpson, thẩm định kết luận | 80 | 20 |
 
 ## Tạo repo bài nộp từ template
 
@@ -93,7 +96,7 @@ git tag submit/lab-02/v1
 git push origin submit/lab-02/v1
 ```
 
-Tag tương ứng của các lab khác là `submit/lab-01/v1`, `submit/lab-03/v1`, `submit/lab-04/v1` … `submit/lab-11/v1` (không có lab 09).
+Tag tương ứng của các lab khác là `submit/lab-01/v1`, `submit/lab-03/v1`, `submit/lab-04/v1` … `submit/lab-14/v1` (không có lab 09).
 Pilot hiện hỗ trợ v1, v2, v3 cho từng lab. Sửa bài phải tạo commit mới và tag lần tiếp theo;
 không di chuyển/force-push tag đã nộp. Commit/push không có tag chưa được xem là bài nộp tự động.
 
@@ -103,7 +106,7 @@ Grader quét **20:00 thứ Bảy, giờ Việt Nam**; giảng viên có thể ch
 Giờ bắt đầu thực tế có thể trễ do GitHub xếp hàng.
 
 Mở commit mà tag trỏ tới → xem status `private-grader/lab-01`, `private-grader/lab-02` hoặc
-`private-grader/lab-03`, `private-grader/lab-04` … `private-grader/lab-11`. Ví dụ `Auto 70/80; manual 20 pending` nghĩa là máy đã chấm 70/80,
+`private-grader/lab-03`, `private-grader/lab-04` … `private-grader/lab-14`. Ví dụ `Auto 70/80; manual 20 pending` nghĩa là máy đã chấm 70/80,
 20 điểm còn chờ giảng viên; đây chưa phải điểm cuối cùng. Status xanh chỉ xác nhận các mục Q tự động đã qua.
 Không cần vào tab Actions ở repo sinh viên. Link Details dẫn đến grader private, chỉ giảng viên xem được.
 
@@ -178,3 +181,22 @@ Bài 4 không bị ảnh hưởng nếu Bài 3 còn sai. **Không bao giờ** d�
 
 Tải `lab-10.ipynb`, `lab-11.ipynb` (và `requirements.txt`, `.gitignore` mới) từ template vào gốc repo của mình.
 Nộp bằng tag `submit/lab-10/vN`, `submit/lab-11/vN`.
+
+
+## Lab 12, 13 và 14 — 25/09/2026
+
+Cùng cách chấm: **80 điểm tự động + 20 điểm giảng viên**; phần 🧭 hỗ trợ bài tập lớn không tính điểm lab.
+
+| Lab | Phiên bản đề | Nội dung chấm tự động |
+|---|---|---|
+| `lab-12.ipynb` | `report-charts-v1` | chuỗi tháng của một quận, biểu đồ đường có nguồn, bảng tỷ lệ nguyên căn, thanh ngang có nhãn, histogram hai đỉnh, sửa trục bị cắt |
+| `lab-13.ipynb` | `seaborn-maps-critique-v1` | boxplot seaborn có `hue` trên thang log, ghép bản đồ số chỗ ở (NaN → 0), đếm theo năm, so các mốc, bản sửa hình chọn mốc có lợi |
+| `lab-14.ipynb` | `storytelling-review-v1` | thứ tự kim tự tháp, nhãn đúng mức/quá mức, giá trung bình gộp, tỷ trọng phân khúc, truy số, phán quyết thẩm định |
+
+Hàm vẽ phải **tạo hình mới, lưu bằng `savefig` và trả về `ax`**: grader đọc cấu trúc hình (dữ liệu đã vẽ, tiêu đề, nhãn, giới hạn trục,
+thang log, chú giải) và file đã lưu; tiêu đề có nêu đúng thông điệp hay không do giảng viên đánh giá. Lab 13 cần `seaborn`, phần vẽ bản đồ cần
+`geopandas` (Colab có sẵn; chạy local thì cài lại `requirements.txt`). Ở lab 14, Bài 1, 2, 6 là câu trả lời gán vào biến: public check
+chỉ kiểm định dạng, không cho biết đúng/sai. Hai notebook 12–13 mặc định dùng dữ liệu giả lập (`USE_SNAPSHOT = False`).
+
+Tải `lab-12.ipynb`, `lab-13.ipynb`, `lab-14.ipynb` (và `requirements.txt` mới) từ template vào gốc repo của mình.
+Nộp bằng tag `submit/lab-12/vN` … `submit/lab-14/vN`.
