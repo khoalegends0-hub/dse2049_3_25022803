@@ -10,3 +10,5 @@ raw/
 t6.csv
 t6.parquet
 ho_so_*.csv
+qa_report_*.csv
+cache_gemini_*.json

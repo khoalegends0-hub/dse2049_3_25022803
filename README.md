@@ -1,4 +1,4 @@
-# LTXLDL — pilot lab 01–08
+# LTXLDL — pilot lab 01–11
 
 Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-2026`**, chứa tất cả các lab.
 Đây là bộ pilot để thử quy trình nộp/chấm, chưa phải điểm chính thức của môn học.
@@ -13,6 +13,8 @@ Mỗi sinh viên có một **private repo riêng trong `uet-iai-notebook-labs-20
 | [lab-06.ipynb](lab-06.ipynb) | Dữ liệu ngoài: đọc có chọn lọc, Parquet, response API lịch sử, DuckDB `JOIN` | 80 | 20 |
 | [lab-07.ipynb](lab-07.ipynb) | Chuỗi và regex trên cột đánh giá: `str.contains`, `str.replace`, `str.extract` | 80 | 20 |
 | [lab-08.ipynb](lab-08.ipynb) | Chuỗi thời gian: cắt lát, quý chưa trọn, `rolling`, so cùng kỳ | 80 | 20 |
+| [lab-10.ipynb](lab-10.ipynb) | Đảm bảo chất lượng chéo bảng: khoá ngoại, khoá tự nhiên, cột dẫn xuất, `qa_report` | 80 | 20 |
+| [lab-11.ipynb](lab-11.ipynb) | Kỷ luật đo lường cho LLM: chọn mẫu, schema Pydantic, nhãn tay, hậu kiểm | 80 | 20 |
 
 ## Tạo repo bài nộp từ template
 
@@ -91,7 +93,7 @@ git tag submit/lab-02/v1
 git push origin submit/lab-02/v1
 ```
 
-Tag tương ứng của các lab khác là `submit/lab-01/v1`, `submit/lab-03/v1`, `submit/lab-04/v1` … `submit/lab-08/v1`.
+Tag tương ứng của các lab khác là `submit/lab-01/v1`, `submit/lab-03/v1`, `submit/lab-04/v1` … `submit/lab-11/v1` (không có lab 09).
 Pilot hiện hỗ trợ v1, v2, v3 cho từng lab. Sửa bài phải tạo commit mới và tag lần tiếp theo;
 không di chuyển/force-push tag đã nộp. Commit/push không có tag chưa được xem là bài nộp tự động.
 
@@ -101,7 +103,7 @@ Grader quét **20:00 thứ Bảy, giờ Việt Nam**; giảng viên có thể ch
 Giờ bắt đầu thực tế có thể trễ do GitHub xếp hàng.
 
 Mở commit mà tag trỏ tới → xem status `private-grader/lab-01`, `private-grader/lab-02` hoặc
-`private-grader/lab-03`, `private-grader/lab-04` … `private-grader/lab-08`. Ví dụ `Auto 70/80; manual 20 pending` nghĩa là máy đã chấm 70/80,
+`private-grader/lab-03`, `private-grader/lab-04` … `private-grader/lab-11`. Ví dụ `Auto 70/80; manual 20 pending` nghĩa là máy đã chấm 70/80,
 20 điểm còn chờ giảng viên; đây chưa phải điểm cuối cùng. Status xanh chỉ xác nhận các mục Q tự động đã qua.
 Không cần vào tab Actions ở repo sinh viên. Link Details dẫn đến grader private, chỉ giảng viên xem được.
 
@@ -157,3 +159,22 @@ Không commit các file dữ liệu notebook tạo ra (`data/`, `data_demo/`, `r
 
 Repo đã tạo từ template không tự nhận file mới: tải `lab-06.ipynb`, `lab-07.ipynb`, `lab-08.ipynb` (và `requirements.txt`,
 `.gitignore` mới) từ template, đặt ở gốc repo của mình rồi làm bài. Nộp bằng tag `submit/lab-06/vN` … `submit/lab-08/vN`.
+
+
+## Lab 10 và lab 11 — 25/09/2026
+
+Không có lab 09 (tuần thi giữa kỳ). Cùng cách chấm: **80 điểm tự động + 20 điểm giảng viên**; phần 🧭 hỗ trợ bài tập lớn
+ở cuối mỗi lab làm theo nhóm, không tính điểm lab.
+
+| Lab | Phiên bản đề | Nội dung chấm tự động |
+|---|---|---|
+| `lab-10.ipynb` | `qa-cross-table-v1` | miền thời gian và mốc chụp, review mồ côi (khoá ngoại), dòng lặp theo khoá ứng viên, đối chiếu `number_of_reviews`, lệch cửa sổ LTM, ghi `qa_report` |
+| `lab-11.ipynb` | `llm-eval-v1` | chọn mẫu tái lập được, ước token và chi phí, schema Pydantic `ReviewInfo`, kiểm tra hàng loạt đầu ra LLM, độ chính xác trên nhãn tay, hậu kiểm tự mâu thuẫn |
+
+Hai notebook mặc định dùng dữ liệu giả lập (`USE_SNAPSHOT = False`); lab 11 **không cần khóa API** và grader không gọi LLM.
+Mỗi phép kiểm ở lab 10 là một hàm nhận bảng qua tham số để chạy lại được trên mốc chụp khác. Lab 11 cần `pydantic` bản 2
+(Colab có sẵn; chạy local thì cài lại `requirements.txt`). Khi chấm Bài 4 lab 11, grader dùng `ReviewInfo` chuẩn nên
+Bài 4 không bị ảnh hưởng nếu Bài 3 còn sai. **Không bao giờ** dán khóa API vào notebook hay commit.
+
+Tải `lab-10.ipynb`, `lab-11.ipynb` (và `requirements.txt`, `.gitignore` mới) từ template vào gốc repo của mình.
+Nộp bằng tag `submit/lab-10/vN`, `submit/lab-11/vN`.
